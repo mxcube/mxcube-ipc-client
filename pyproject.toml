@@ -1,0 +1,23 @@
+[project]
+name = "mxcube-ipc-client"
+version = "0.1.0"
+description = "Client for mxcubecore's IPC server (mxcubecore.ipc), over JSON-RPC/TCP or NanoMQ (MQTT)."
+readme = "README.md"
+license = { text = "LGPL-3.0-or-later" }
+requires-python = ">=3.10"
+# No required dependencies: the JSON-RPC/TCP transport is plain stdlib.
+dependencies = []
+
+[project.optional-dependencies]
+nanomq = ["paho-mqtt>=2.1.0"]
+test = ["pytest>=7", "paho-mqtt>=2.1.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
